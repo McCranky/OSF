@@ -60,6 +60,30 @@
     <Compile Include="UC_About.Designer.cs">
       <DependentUpon>UC_About.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_Divizie.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Divizie.Designer.cs">
+      <DependentUpon>UC_Divizie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_Firma.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Firma.Designer.cs">
+      <DependentUpon>UC_Firma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_Oddelenia.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Oddelenia.Designer.cs">
+      <DependentUpon>UC_Oddelenia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_Projekty.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Projekty.Designer.cs">
+      <DependentUpon>UC_Projekty.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="OSFform.resx">
       <DependentUpon>OSFform.cs</DependentUpon>
     </EmbeddedResource>
@@ -74,6 +98,18 @@
     </Compile>
     <EmbeddedResource Include="UC_About.resx">
       <DependentUpon>UC_About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Divizie.resx">
+      <DependentUpon>UC_Divizie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Firma.resx">
+      <DependentUpon>UC_Firma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Oddelenia.resx">
+      <DependentUpon>UC_Oddelenia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Projekty.resx">
+      <DependentUpon>UC_Projekty.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
