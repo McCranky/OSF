@@ -12,6 +12,8 @@ namespace OSF {
     public partial class UC_Firma : UserControl {
         public UC_Firma() {
             InitializeComponent();
+            
         }
+        
     }
 }

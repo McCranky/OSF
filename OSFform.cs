@@ -40,33 +40,51 @@ namespace OSF {
             }
         }
 
+        private void OSFform_KeyDown(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.Escape) {
+                this.Close();
+            }
+        }
+
         private void Button5_Click(object sender, EventArgs e) {
-            this.Close();
+            //this.Close();
+            Application.Exit();
         }
 
         private void Button1_Click(object sender, EventArgs e) {
             buttonPanel.Top = button1.Top;
-            buttonPanel.Visible = true;
+            buttonPanel.Left = button1.Left - buttonPanel.Width;
+            uC_Firma.BringToFront();
+            
         }
 
         private void Button2_Click(object sender, EventArgs e) {
             buttonPanel.Top = button2.Top;
-            buttonPanel.Visible = true;
+            buttonPanel.Left = button2.Left - buttonPanel.Width;
         }
 
         private void Button3_Click(object sender, EventArgs e) {
             buttonPanel.Top = button3.Top;
-            buttonPanel.Visible = true;
+            buttonPanel.Left = button3.Left - buttonPanel.Width;
         }
 
         private void Button4_Click(object sender, EventArgs e) {
             buttonPanel.Top = button4.Top;
-            buttonPanel.Visible = true;
+            buttonPanel.Left = button4.Left - buttonPanel.Width;
         }
         // About button
         private void Button6_Click(object sender, EventArgs e) {
-            buttonPanel.Visible = false;
+            buttonPanel.Top = button6.Top;
+            buttonPanel.Left = button6.Left - buttonPanel.Width;
             uC_About.BringToFront();
         }
+
+        private void OSFform_Load(object sender, EventArgs e) {
+            //panel1.Visible = false;
+            buttonPanel.Top = button1.Top;
+            buttonPanel.Left = button1.Left - buttonPanel.Width;
+        }
+
+        
     }
 }
