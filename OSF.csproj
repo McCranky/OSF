@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,6 +49,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,18 +62,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
     <Compile Include="OSFform.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="OSFform.Designer.cs">
       <DependentUpon>OSFform.cs</DependentUpon>
     </Compile>
+    <Compile Include="OSF_DatabaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OSF_DatabaseDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UC_About.cs">
+    <Compile Include="About\UC_About.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_About.Designer.cs">
+    <Compile Include="About\UC_About.Designer.cs">
       <DependentUpon>UC_About.cs</DependentUpon>
     </Compile>
     <Compile Include="UC_Divizie.cs">
@@ -66,10 +88,10 @@
     <Compile Include="UC_Divizie.Designer.cs">
       <DependentUpon>UC_Divizie.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_Firma.cs">
+    <Compile Include="Firma\UC_Firma.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_Firma.Designer.cs">
+    <Compile Include="Firma\UC_Firma.Designer.cs">
       <DependentUpon>UC_Firma.cs</DependentUpon>
     </Compile>
     <Compile Include="UC_Oddelenia.cs">
@@ -96,13 +118,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UC_About.resx">
+    <EmbeddedResource Include="About\UC_About.resx">
       <DependentUpon>UC_About.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Divizie.resx">
       <DependentUpon>UC_Divizie.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_Firma.resx">
+    <EmbeddedResource Include="Firma\UC_Firma.resx">
       <DependentUpon>UC_Firma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Oddelenia.resx">
@@ -111,6 +133,17 @@
     <EmbeddedResource Include="UC_Projekty.resx">
       <DependentUpon>UC_Projekty.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="OSF_DatabaseDataSet.xsc">
+      <DependentUpon>OSF_DatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="OSF_DatabaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OSF_DatabaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OSF_DatabaseDataSet.xss">
+      <DependentUpon>OSF_DatabaseDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -123,6 +156,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="OSF_Database.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OSF_Database_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>OSF_Database.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

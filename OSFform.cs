@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -10,16 +12,30 @@ using System.Windows.Forms;
 
 namespace OSF {
     public partial class OSFform : Form {
+        private string connectionString;
+        private SqlConnection connection;
         private bool moveForm = false;
         private Point movePoint;
+        private UserControl currentUC;
 
         public OSFform() {
             InitializeComponent();
+            connectionString = ConfigurationManager.ConnectionStrings["OSF.Properties.Settings.OSF_DatabaseConnectionString"].ConnectionString;
+            initUC_About();
+
+            changeUC(uC_About);
+        }
+
+        private void initUC_About() {
+            uC_About.Autor = Constants.AUTOR;
+            uC_About.Verzia = Constants.VERZIA;
+            uC_About.Rok = Constants.ROK;
         }
 
         private void OSFform_MouseDown(object sender, MouseEventArgs e) {
             moveForm = true;
             movePoint = e.Location;
+            
         }
 
         private void OSFform_MouseMove(object sender, MouseEventArgs e) {
@@ -46,45 +62,75 @@ namespace OSF {
             }
         }
 
-        private void Button5_Click(object sender, EventArgs e) {
+        private void btnExit_Click(object sender, EventArgs e) {
             //this.Close();
             Application.Exit();
         }
 
-        private void Button1_Click(object sender, EventArgs e) {
-            buttonPanel.Top = button1.Top;
-            buttonPanel.Left = button1.Left - buttonPanel.Width;
-            uC_Firma.BringToFront();
-            
+        private void btnFirma_Click(object sender, EventArgs e) {
+            buttonPanel.Top = btnFirma.Top;
+            buttonPanel.Left = btnFirma.Left - buttonPanel.Width;
+            changeUC(uC_Firma);
+
         }
 
-        private void Button2_Click(object sender, EventArgs e) {
-            buttonPanel.Top = button2.Top;
-            buttonPanel.Left = button2.Left - buttonPanel.Width;
+        private void btnDivizie_Click(object sender, EventArgs e) {
+            buttonPanel.Top = btnDivizie.Top;
+            buttonPanel.Left = btnDivizie.Left - buttonPanel.Width;
         }
 
-        private void Button3_Click(object sender, EventArgs e) {
-            buttonPanel.Top = button3.Top;
-            buttonPanel.Left = button3.Left - buttonPanel.Width;
+        private void btnProjekty_Click(object sender, EventArgs e) {
+            buttonPanel.Top = btnProjekty.Top;
+            buttonPanel.Left = btnProjekty.Left - buttonPanel.Width;
         }
 
-        private void Button4_Click(object sender, EventArgs e) {
-            buttonPanel.Top = button4.Top;
-            buttonPanel.Left = button4.Left - buttonPanel.Width;
+        private void btnOddelenia_Click(object sender, EventArgs e) {
+            buttonPanel.Top = btnOddelenia.Top;
+            buttonPanel.Left = btnOddelenia.Left - buttonPanel.Width;
         }
-        // About button
-        private void Button6_Click(object sender, EventArgs e) {
-            buttonPanel.Top = button6.Top;
-            buttonPanel.Left = button6.Left - buttonPanel.Width;
-            uC_About.BringToFront();
+
+        private void btnAbout_Click(object sender, EventArgs e) {
+            buttonPanel.Top = btnAbout.Top;
+            buttonPanel.Left = btnAbout.Left - buttonPanel.Width;
+            changeUC(uC_About);
+        }
+
+        private void btnZamestnanci_Click(object sender, EventArgs e) {
+            buttonPanel.Top = btnZamestnanci.Top;
+            buttonPanel.Left = btnZamestnanci.Left - buttonPanel.Width;
         }
 
         private void OSFform_Load(object sender, EventArgs e) {
-            //panel1.Visible = false;
-            buttonPanel.Top = button1.Top;
-            buttonPanel.Left = button1.Left - buttonPanel.Width;
+            buttonPanel.Top = btnFirma.Top;
+            buttonPanel.Left = btnFirma.Left - buttonPanel.Width;
+
+            naplnList();
         }
 
-        
+        private void naplnList() {
+            using (connection = new SqlConnection(Constants.CONNECTIONSTRING))
+            using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Tab_UrovenFirmy", connection)) {
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+
+                
+                listUrovni.DataSource = table;
+                listUrovni.DisplayMember = "popis";
+                listUrovni.ValueMember = "id";
+                
+            }
+        }
+
+        private void changeUC(UserControl uc) {
+            if (currentUC != null) {
+                if (currentUC == uc) {
+                    return;
+                }
+                currentUC.Visible = false;
+            }
+            currentUC = uc;
+            currentUC.Visible = true;
+            currentUC.BringToFront();
+        }
     }
 }
