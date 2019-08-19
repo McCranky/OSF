@@ -7,9 +7,12 @@ using System.Threading.Tasks;
 
 namespace OSF {
     class Constants {
-        public static string VERZIA = "1.0 beta";
-        public static string AUTOR = "Marek Smatana";
-        public static string ROK = "2019";
-        public static string CONNECTIONSTRING = ConfigurationManager.ConnectionStrings["OSF.Properties.Settings.OSF_DatabaseConnectionString"].ConnectionString;
+        public const int UROVEN_FIRMA = 1;
+        public const int UROVEN_DIVIZIA = 2;
+        public const int UROVEN_PROJEKT = 3;
+        public const int UROVEN_ODDELENIE = 4;
+        public const string VERZIA = "1.0 beta";
+        public const string AUTOR = "Marek Smatana";
+        public const string ROK = "2019";
     }
 }

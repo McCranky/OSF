@@ -30,14 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OSFform));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnAbout = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonPanel = new System.Windows.Forms.Panel();
+            this.btnZamestnanci = new System.Windows.Forms.Button();
+            this.btnAbout = new System.Windows.Forms.Button();
             this.btnOddelenia = new System.Windows.Forms.Button();
             this.btnProjekty = new System.Windows.Forms.Button();
             this.btnDivizie = new System.Windows.Forms.Button();
             this.btnFirma = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelAbout = new System.Windows.Forms.Panel();
             this.labRok = new System.Windows.Forms.Label();
             this.labVerzia = new System.Windows.Forms.Label();
@@ -46,7 +47,6 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.btnZamestnanci = new System.Windows.Forms.Button();
             this.listUrovni = new System.Windows.Forms.ComboBox();
             this.uC_About = new OSF.UC_About();
             this.uC_Firma = new OSF.UC_Firma();
@@ -76,6 +76,32 @@
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OSFform_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OSFform_MouseUp);
             // 
+            // buttonPanel
+            // 
+            this.buttonPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(231)))), ((int)(((byte)(238)))));
+            this.buttonPanel.Location = new System.Drawing.Point(25, 116);
+            this.buttonPanel.Name = "buttonPanel";
+            this.buttonPanel.Size = new System.Drawing.Size(12, 48);
+            this.buttonPanel.TabIndex = 7;
+            // 
+            // btnZamestnanci
+            // 
+            this.btnZamestnanci.FlatAppearance.BorderSize = 0;
+            this.btnZamestnanci.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnZamestnanci.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnZamestnanci.ForeColor = System.Drawing.Color.White;
+            this.btnZamestnanci.Image = ((System.Drawing.Image)(resources.GetObject("btnZamestnanci.Image")));
+            this.btnZamestnanci.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnZamestnanci.Location = new System.Drawing.Point(53, 368);
+            this.btnZamestnanci.Name = "btnZamestnanci";
+            this.btnZamestnanci.Size = new System.Drawing.Size(161, 48);
+            this.btnZamestnanci.TabIndex = 7;
+            this.btnZamestnanci.Text = "     Zamestnanci";
+            this.btnZamestnanci.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnZamestnanci.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnZamestnanci.UseVisualStyleBackColor = true;
+            this.btnZamestnanci.Click += new System.EventHandler(this.btnZamestnanci_Click);
+            // 
             // btnAbout
             // 
             this.btnAbout.FlatAppearance.BorderSize = 0;
@@ -87,36 +113,6 @@
             this.btnAbout.TabIndex = 6;
             this.btnAbout.UseVisualStyleBackColor = true;
             this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(12, 515);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(25, 25);
-            this.btnExit.TabIndex = 5;
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(21, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(183, 65);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // buttonPanel
-            // 
-            this.buttonPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(231)))), ((int)(((byte)(238)))));
-            this.buttonPanel.Location = new System.Drawing.Point(25, 116);
-            this.buttonPanel.Name = "buttonPanel";
-            this.buttonPanel.Size = new System.Drawing.Size(12, 48);
-            this.buttonPanel.TabIndex = 7;
             // 
             // btnOddelenia
             // 
@@ -189,6 +185,28 @@
             this.btnFirma.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFirma.UseVisualStyleBackColor = true;
             this.btnFirma.Click += new System.EventHandler(this.btnFirma_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.Location = new System.Drawing.Point(12, 515);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(25, 25);
+            this.btnExit.TabIndex = 5;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(21, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(183, 65);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // panelAbout
             // 
@@ -274,24 +292,6 @@
             this.label21.Size = new System.Drawing.Size(296, 25);
             this.label21.TabIndex = 7;
             this.label21.Text = "Organizačná štruktúra firmy";
-            // 
-            // btnZamestnanci
-            // 
-            this.btnZamestnanci.FlatAppearance.BorderSize = 0;
-            this.btnZamestnanci.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnZamestnanci.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnZamestnanci.ForeColor = System.Drawing.Color.White;
-            this.btnZamestnanci.Image = ((System.Drawing.Image)(resources.GetObject("btnZamestnanci.Image")));
-            this.btnZamestnanci.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnZamestnanci.Location = new System.Drawing.Point(53, 368);
-            this.btnZamestnanci.Name = "btnZamestnanci";
-            this.btnZamestnanci.Size = new System.Drawing.Size(161, 48);
-            this.btnZamestnanci.TabIndex = 7;
-            this.btnZamestnanci.Text = "     Zamestnanci";
-            this.btnZamestnanci.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnZamestnanci.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnZamestnanci.UseVisualStyleBackColor = true;
-            this.btnZamestnanci.Click += new System.EventHandler(this.btnZamestnanci_Click);
             // 
             // listUrovni
             // 

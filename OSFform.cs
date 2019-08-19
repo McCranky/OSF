@@ -12,8 +12,8 @@ using System.Windows.Forms;
 
 namespace OSF {
     public partial class OSFform : Form {
-        private string connectionString;
         private SqlConnection connection;
+        private string connectionString;
         private bool moveForm = false;
         private Point movePoint;
         private UserControl currentUC;
@@ -23,7 +23,7 @@ namespace OSF {
             connectionString = ConfigurationManager.ConnectionStrings["OSF.Properties.Settings.OSF_DatabaseConnectionString"].ConnectionString;
             initUC_About();
 
-            changeUC(uC_About);
+            changeUC(uC_Firma);
         }
 
         private void initUC_About() {
@@ -68,6 +68,7 @@ namespace OSF {
         }
 
         private void btnFirma_Click(object sender, EventArgs e) {
+            buttonPanel.Height = btnFirma.Height;
             buttonPanel.Top = btnFirma.Top;
             buttonPanel.Left = btnFirma.Left - buttonPanel.Width;
             changeUC(uC_Firma);
@@ -75,27 +76,32 @@ namespace OSF {
         }
 
         private void btnDivizie_Click(object sender, EventArgs e) {
+            buttonPanel.Height = btnDivizie.Height;
             buttonPanel.Top = btnDivizie.Top;
             buttonPanel.Left = btnDivizie.Left - buttonPanel.Width;
         }
 
         private void btnProjekty_Click(object sender, EventArgs e) {
+            buttonPanel.Height = btnProjekty.Height;
             buttonPanel.Top = btnProjekty.Top;
             buttonPanel.Left = btnProjekty.Left - buttonPanel.Width;
         }
 
         private void btnOddelenia_Click(object sender, EventArgs e) {
+            buttonPanel.Height = btnOddelenia.Height;
             buttonPanel.Top = btnOddelenia.Top;
             buttonPanel.Left = btnOddelenia.Left - buttonPanel.Width;
         }
 
         private void btnAbout_Click(object sender, EventArgs e) {
+            buttonPanel.Height = btnAbout.Height;
             buttonPanel.Top = btnAbout.Top;
             buttonPanel.Left = btnAbout.Left - buttonPanel.Width;
             changeUC(uC_About);
         }
 
         private void btnZamestnanci_Click(object sender, EventArgs e) {
+            buttonPanel.Height = btnZamestnanci.Height;
             buttonPanel.Top = btnZamestnanci.Top;
             buttonPanel.Left = btnZamestnanci.Left - buttonPanel.Width;
         }
@@ -108,7 +114,7 @@ namespace OSF {
         }
 
         private void naplnList() {
-            using (connection = new SqlConnection(Constants.CONNECTIONSTRING))
+            using (connection = new SqlConnection(connectionString))
             using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Tab_UrovenFirmy", connection)) {
                 DataTable table = new DataTable();
                 adapter.Fill(table);

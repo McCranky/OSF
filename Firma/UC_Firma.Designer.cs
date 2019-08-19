@@ -46,14 +46,33 @@
             this.lstKandidati = new System.Windows.Forms.ListBox();
             this.btnUkoncit = new System.Windows.Forms.Button();
             this.btnUlozit = new System.Windows.Forms.Button();
-            this.tbKod = new System.Windows.Forms.TextBox();
             this.tbNazov = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.formularFirmy = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.tbFnazov = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lbNadpis = new System.Windows.Forms.Label();
+            this.btnFulozit = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tbFtelefon = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tbFmail = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tbFpriezvisko = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.tbFmeno = new System.Windows.Forms.TextBox();
+            this.lbTitul = new System.Windows.Forms.Label();
+            this.tbFtitul = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panelEdit.SuspendLayout();
+            this.formularFirmy.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -142,9 +161,9 @@
             this.labelNazov.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelNazov.Location = new System.Drawing.Point(547, 121);
             this.labelNazov.Name = "labelNazov";
-            this.labelNazov.Size = new System.Drawing.Size(57, 21);
+            this.labelNazov.Size = new System.Drawing.Size(25, 21);
             this.labelNazov.TabIndex = 8;
-            this.labelNazov.Text = "label8";
+            this.labelNazov.Text = "---";
             // 
             // labelKod
             // 
@@ -152,9 +171,9 @@
             this.labelKod.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelKod.Location = new System.Drawing.Point(547, 164);
             this.labelKod.Name = "labelKod";
-            this.labelKod.Size = new System.Drawing.Size(57, 21);
+            this.labelKod.Size = new System.Drawing.Size(25, 21);
             this.labelKod.TabIndex = 9;
-            this.labelKod.Text = "label9";
+            this.labelKod.Text = "---";
             // 
             // labelRiaditel
             // 
@@ -162,9 +181,9 @@
             this.labelRiaditel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelRiaditel.Location = new System.Drawing.Point(547, 207);
             this.labelRiaditel.Name = "labelRiaditel";
-            this.labelRiaditel.Size = new System.Drawing.Size(66, 21);
+            this.labelRiaditel.Size = new System.Drawing.Size(25, 21);
             this.labelRiaditel.TabIndex = 10;
-            this.labelRiaditel.Text = "label10";
+            this.labelRiaditel.Text = "---";
             // 
             // labelDivizie
             // 
@@ -172,9 +191,9 @@
             this.labelDivizie.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelDivizie.Location = new System.Drawing.Point(547, 367);
             this.labelDivizie.Name = "labelDivizie";
-            this.labelDivizie.Size = new System.Drawing.Size(66, 21);
+            this.labelDivizie.Size = new System.Drawing.Size(25, 21);
             this.labelDivizie.TabIndex = 11;
-            this.labelDivizie.Text = "label11";
+            this.labelDivizie.Text = "---";
             // 
             // labelProjekty
             // 
@@ -182,9 +201,9 @@
             this.labelProjekty.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelProjekty.Location = new System.Drawing.Point(547, 394);
             this.labelProjekty.Name = "labelProjekty";
-            this.labelProjekty.Size = new System.Drawing.Size(66, 21);
+            this.labelProjekty.Size = new System.Drawing.Size(25, 21);
             this.labelProjekty.TabIndex = 12;
-            this.labelProjekty.Text = "label12";
+            this.labelProjekty.Text = "---";
             // 
             // labelOddelenia
             // 
@@ -192,9 +211,9 @@
             this.labelOddelenia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelOddelenia.Location = new System.Drawing.Point(547, 421);
             this.labelOddelenia.Name = "labelOddelenia";
-            this.labelOddelenia.Size = new System.Drawing.Size(66, 21);
+            this.labelOddelenia.Size = new System.Drawing.Size(25, 21);
             this.labelOddelenia.TabIndex = 13;
-            this.labelOddelenia.Text = "label13";
+            this.labelOddelenia.Text = "---";
             // 
             // labelZamestnanci
             // 
@@ -202,9 +221,9 @@
             this.labelZamestnanci.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelZamestnanci.Location = new System.Drawing.Point(547, 448);
             this.labelZamestnanci.Name = "labelZamestnanci";
-            this.labelZamestnanci.Size = new System.Drawing.Size(66, 21);
+            this.labelZamestnanci.Size = new System.Drawing.Size(25, 21);
             this.labelZamestnanci.TabIndex = 14;
-            this.labelZamestnanci.Text = "label14";
+            this.labelZamestnanci.Text = "---";
             // 
             // panel2
             // 
@@ -259,10 +278,8 @@
             this.panelEdit.Controls.Add(this.lstKandidati);
             this.panelEdit.Controls.Add(this.btnUkoncit);
             this.panelEdit.Controls.Add(this.btnUlozit);
-            this.panelEdit.Controls.Add(this.tbKod);
             this.panelEdit.Controls.Add(this.tbNazov);
             this.panelEdit.Controls.Add(this.label10);
-            this.panelEdit.Controls.Add(this.label9);
             this.panelEdit.Controls.Add(this.label8);
             this.panelEdit.Location = new System.Drawing.Point(102, 118);
             this.panelEdit.Name = "panelEdit";
@@ -274,9 +291,9 @@
             // 
             this.lstKandidati.FormattingEnabled = true;
             this.lstKandidati.HorizontalScrollbar = true;
-            this.lstKandidati.Location = new System.Drawing.Point(5, 150);
+            this.lstKandidati.Location = new System.Drawing.Point(4, 82);
             this.lstKandidati.Name = "lstKandidati";
-            this.lstKandidati.Size = new System.Drawing.Size(235, 134);
+            this.lstKandidati.Size = new System.Drawing.Size(235, 212);
             this.lstKandidati.TabIndex = 10;
             // 
             // btnUkoncit
@@ -313,15 +330,7 @@
             this.btnUlozit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUlozit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUlozit.UseVisualStyleBackColor = true;
-            // 
-            // tbKod
-            // 
-            this.tbKod.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbKod.Location = new System.Drawing.Point(116, 62);
-            this.tbKod.MaxLength = 16;
-            this.tbKod.Name = "tbKod";
-            this.tbKod.Size = new System.Drawing.Size(100, 27);
-            this.tbKod.TabIndex = 6;
+            this.btnUlozit.Click += new System.EventHandler(this.BtnUlozit_Click);
             // 
             // tbNazov
             // 
@@ -331,26 +340,17 @@
             this.tbNazov.Name = "tbNazov";
             this.tbNazov.Size = new System.Drawing.Size(100, 27);
             this.tbNazov.TabIndex = 5;
+            this.tbNazov.Text = "OSF";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(1, 112);
+            this.label10.Location = new System.Drawing.Point(1, 46);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(94, 25);
             this.label10.TabIndex = 4;
             this.label10.Text = "Riaditeľ:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(37, 62);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(58, 25);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "Kód:";
             // 
             // label8
             // 
@@ -362,10 +362,240 @@
             this.label8.TabIndex = 2;
             this.label8.Text = "Názov:";
             // 
+            // formularFirmy
+            // 
+            this.formularFirmy.Controls.Add(this.label19);
+            this.formularFirmy.Controls.Add(this.label18);
+            this.formularFirmy.Controls.Add(this.label17);
+            this.formularFirmy.Controls.Add(this.label16);
+            this.formularFirmy.Controls.Add(this.tbFnazov);
+            this.formularFirmy.Controls.Add(this.label15);
+            this.formularFirmy.Controls.Add(this.label14);
+            this.formularFirmy.Controls.Add(this.lbNadpis);
+            this.formularFirmy.Controls.Add(this.btnFulozit);
+            this.formularFirmy.Controls.Add(this.label9);
+            this.formularFirmy.Controls.Add(this.tbFtelefon);
+            this.formularFirmy.Controls.Add(this.label11);
+            this.formularFirmy.Controls.Add(this.tbFmail);
+            this.formularFirmy.Controls.Add(this.label12);
+            this.formularFirmy.Controls.Add(this.tbFpriezvisko);
+            this.formularFirmy.Controls.Add(this.label13);
+            this.formularFirmy.Controls.Add(this.tbFmeno);
+            this.formularFirmy.Controls.Add(this.lbTitul);
+            this.formularFirmy.Controls.Add(this.tbFtitul);
+            this.formularFirmy.Location = new System.Drawing.Point(363, 118);
+            this.formularFirmy.Name = "formularFirmy";
+            this.formularFirmy.Size = new System.Drawing.Size(337, 354);
+            this.formularFirmy.TabIndex = 17;
+            this.formularFirmy.Visible = false;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label19.ForeColor = System.Drawing.Color.DarkRed;
+            this.label19.Location = new System.Drawing.Point(264, 217);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(19, 24);
+            this.label19.TabIndex = 32;
+            this.label19.Text = "*";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label18.ForeColor = System.Drawing.Color.DarkRed;
+            this.label18.Location = new System.Drawing.Point(264, 188);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(19, 24);
+            this.label18.TabIndex = 31;
+            this.label18.Text = "*";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label17.ForeColor = System.Drawing.Color.DarkRed;
+            this.label17.Location = new System.Drawing.Point(264, 159);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(19, 24);
+            this.label17.TabIndex = 30;
+            this.label17.Text = "*";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label16.ForeColor = System.Drawing.Color.DarkRed;
+            this.label16.Location = new System.Drawing.Point(264, 45);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(19, 24);
+            this.label16.TabIndex = 29;
+            this.label16.Text = "*";
+            // 
+            // tbFnazov
+            // 
+            this.tbFnazov.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbFnazov.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbFnazov.Location = new System.Drawing.Point(159, 45);
+            this.tbFnazov.MaxLength = 16;
+            this.tbFnazov.Name = "tbFnazov";
+            this.tbFnazov.Size = new System.Drawing.Size(100, 23);
+            this.tbFnazov.TabIndex = 28;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label15.Location = new System.Drawing.Point(136, 12);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(61, 23);
+            this.label15.TabIndex = 27;
+            this.label15.Text = "Firma";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label14.Location = new System.Drawing.Point(75, 46);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(60, 21);
+            this.label14.TabIndex = 26;
+            this.label14.Text = "Názov";
+            // 
+            // lbNadpis
+            // 
+            this.lbNadpis.AutoSize = true;
+            this.lbNadpis.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbNadpis.Location = new System.Drawing.Point(126, 94);
+            this.lbNadpis.Name = "lbNadpis";
+            this.lbNadpis.Size = new System.Drawing.Size(80, 23);
+            this.lbNadpis.TabIndex = 25;
+            this.lbNadpis.Text = "Riaditel";
+            // 
+            // btnFulozit
+            // 
+            this.btnFulozit.FlatAppearance.BorderSize = 0;
+            this.btnFulozit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFulozit.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnFulozit.ForeColor = System.Drawing.Color.Black;
+            this.btnFulozit.Image = ((System.Drawing.Image)(resources.GetObject("btnFulozit.Image")));
+            this.btnFulozit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFulozit.Location = new System.Drawing.Point(113, 289);
+            this.btnFulozit.Name = "btnFulozit";
+            this.btnFulozit.Size = new System.Drawing.Size(107, 48);
+            this.btnFulozit.TabIndex = 23;
+            this.btnFulozit.Text = "     Uložiť";
+            this.btnFulozit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFulozit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFulozit.UseVisualStyleBackColor = true;
+            this.btnFulozit.Click += new System.EventHandler(this.BtnFulozit_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label9.Location = new System.Drawing.Point(69, 244);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(66, 21);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Telefon";
+            // 
+            // tbFtelefon
+            // 
+            this.tbFtelefon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbFtelefon.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbFtelefon.Location = new System.Drawing.Point(159, 246);
+            this.tbFtelefon.MaxLength = 10;
+            this.tbFtelefon.Name = "tbFtelefon";
+            this.tbFtelefon.Size = new System.Drawing.Size(100, 23);
+            this.tbFtelefon.TabIndex = 21;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label11.Location = new System.Drawing.Point(93, 215);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(42, 21);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "Mail";
+            // 
+            // tbFmail
+            // 
+            this.tbFmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbFmail.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbFmail.Location = new System.Drawing.Point(159, 217);
+            this.tbFmail.MaxLength = 30;
+            this.tbFmail.Name = "tbFmail";
+            this.tbFmail.Size = new System.Drawing.Size(100, 23);
+            this.tbFmail.TabIndex = 19;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label12.Location = new System.Drawing.Point(54, 186);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(81, 21);
+            this.label12.TabIndex = 18;
+            this.label12.Text = "Priezvisko";
+            // 
+            // tbFpriezvisko
+            // 
+            this.tbFpriezvisko.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbFpriezvisko.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbFpriezvisko.Location = new System.Drawing.Point(159, 188);
+            this.tbFpriezvisko.MaxLength = 20;
+            this.tbFpriezvisko.Name = "tbFpriezvisko";
+            this.tbFpriezvisko.Size = new System.Drawing.Size(100, 23);
+            this.tbFpriezvisko.TabIndex = 17;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label13.Location = new System.Drawing.Point(80, 157);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(55, 21);
+            this.label13.TabIndex = 16;
+            this.label13.Text = "Meno";
+            // 
+            // tbFmeno
+            // 
+            this.tbFmeno.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbFmeno.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbFmeno.Location = new System.Drawing.Point(159, 159);
+            this.tbFmeno.MaxLength = 20;
+            this.tbFmeno.Name = "tbFmeno";
+            this.tbFmeno.Size = new System.Drawing.Size(100, 23);
+            this.tbFmeno.TabIndex = 15;
+            // 
+            // lbTitul
+            // 
+            this.lbTitul.AutoSize = true;
+            this.lbTitul.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbTitul.Location = new System.Drawing.Point(94, 128);
+            this.lbTitul.Name = "lbTitul";
+            this.lbTitul.Size = new System.Drawing.Size(41, 21);
+            this.lbTitul.TabIndex = 14;
+            this.lbTitul.Text = "Titul";
+            // 
+            // tbFtitul
+            // 
+            this.tbFtitul.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbFtitul.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbFtitul.Location = new System.Drawing.Point(159, 130);
+            this.tbFtitul.MaxLength = 10;
+            this.tbFtitul.Name = "tbFtitul";
+            this.tbFtitul.Size = new System.Drawing.Size(100, 23);
+            this.tbFtitul.TabIndex = 13;
+            // 
             // UC_Firma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.formularFirmy);
             this.Controls.Add(this.panelEdit);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.labelZamestnanci);
@@ -386,10 +616,13 @@
             this.Name = "UC_Firma";
             this.Size = new System.Drawing.Size(785, 552);
             this.Load += new System.EventHandler(this.UC_Firma_Load);
+            this.VisibleChanged += new System.EventHandler(this.BtnUkoncit_Click);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panelEdit.ResumeLayout(false);
             this.panelEdit.PerformLayout();
+            this.formularFirmy.ResumeLayout(false);
+            this.formularFirmy.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -418,11 +651,29 @@
         private System.Windows.Forms.Panel panelEdit;
         private System.Windows.Forms.Button btnUkoncit;
         private System.Windows.Forms.Button btnUlozit;
-        private System.Windows.Forms.TextBox tbKod;
         private System.Windows.Forms.TextBox tbNazov;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ListBox lstKandidati;
+        private System.Windows.Forms.Panel formularFirmy;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox tbFnazov;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lbNadpis;
+        private System.Windows.Forms.Button btnFulozit;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox tbFtelefon;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox tbFmail;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox tbFpriezvisko;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox tbFmeno;
+        private System.Windows.Forms.Label lbTitul;
+        private System.Windows.Forms.TextBox tbFtitul;
     }
 }
