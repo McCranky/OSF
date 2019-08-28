@@ -12,22 +12,29 @@ using System.Windows.Forms;
 
 namespace OSF {
     public partial class OSFform : Form {
-        //private SqlConnection connection;
-        private string connectionString;
         private bool moveForm = false;
         private Point movePoint;
         private UserControl currentUC;
 
         public OSFform() {
-            
-            //Constants.CONNECTIONSTRING = connectionString;
             InitializeComponent();
-            connectionString = ConfigurationManager.ConnectionStrings["OSF.Properties.Settings.OSF_DatabaseConnectionString"].ConnectionString;
             initUC_About();
-
+            ttExit.SetToolTip(btnExit, "Ukončenie aplikácie");
+            ttAbout.SetToolTip(btnAbout, "Základne informácie");
+            uC_Divizie.zmenaDivizie += zmenaTextuDivizie;
+            uC_Projekty.zmenaProjektu += zmenaTextuProjektu;
+            uC_Oddelenia.zmenaOddelenia += zmenaTextuOddelenia;
             changeUC(uC_Firma);
         }
-
+        private void zmenaTextuDivizie(string nazov) {
+            lbDivizia.Text = "[" + nazov + "]";
+        }
+        private void zmenaTextuProjektu(string nazov) {
+            lbProjekt.Text = "[" + nazov + "]"; ;
+        }
+        private void zmenaTextuOddelenia(string nazov) {
+            lbOddelenie.Text = "[" + nazov + "]"; ;
+        }
         private void initUC_About() {
             uC_About.Autor = Constants.AUTOR;
             uC_About.Verzia = Constants.VERZIA;
@@ -125,6 +132,10 @@ namespace OSF {
         }
 
         private void btnZamestnanci_Click(object sender, EventArgs e) {
+            if (!Preferences.IsFirma) {
+                MessageBox.Show("Najprv založte firmu.", "Upozornenie");
+                return;
+            }
             buttonPanel.Height = btnZamestnanci.Height;
             buttonPanel.Top = btnZamestnanci.Top;
             buttonPanel.Left = btnZamestnanci.Left - buttonPanel.Width;

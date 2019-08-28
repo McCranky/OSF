@@ -3,7 +3,7 @@ using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-namespace OSF.Zamestnanci {
+namespace OSF {
     public partial class UC_Zamestnanci : UserControl {
         private SqlConnection connection;
         public UC_Zamestnanci() {

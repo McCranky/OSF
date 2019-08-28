@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 namespace OSF {
     public partial class UC_Oddelenia : UserControl {
         private SqlConnection connection;
+        public event EventZmenyDivizie zmenaOddelenia;
         public UC_Oddelenia() {
             InitializeComponent();
             update();
@@ -74,6 +75,9 @@ namespace OSF {
         private void LstOddelenia_SelectedIndexChanged(object sender, EventArgs e) {
             if (lstOddelenia.SelectedValue == null || lstOddelenia.SelectedValue.ToString() == "System.Data.DataRowView") {
                 return;
+            }
+            if (zmenaOddelenia != null) {
+                zmenaOddelenia(lstOddelenia.Text);
             }
             Preferences.KodOddelenia = Convert.ToInt32(lstOddelenia.SelectedValue);
             tbNazov.Text = lstOddelenia.Text;
@@ -201,6 +205,10 @@ namespace OSF {
             } else {
                 Preferences.IsOddelenie = false;
                 Preferences.IsKodOddelenie = false;
+            }
+
+            if (zmenaOddelenia != null) {
+                zmenaOddelenia(lstOddelenia.SelectedItem == null ? "---" : lstOddelenia.Text);
             }
         }
     }

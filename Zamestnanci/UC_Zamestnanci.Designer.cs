@@ -1,4 +1,4 @@
-﻿namespace OSF.Zamestnanci {
+﻿namespace OSF {
     partial class UC_Zamestnanci {
         /// <summary> 
         /// Required designer variable.

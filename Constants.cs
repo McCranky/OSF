@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace OSF {
+    public delegate void EventZmenyDivizie(string nazov);
     class Constants {
         public const int UROVEN_FIRMA = 1;
         public const int UROVEN_DIVIZIA = 2;

@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 namespace OSF {
     public partial class UC_Projekty : UserControl {
         private SqlConnection connection;
+        public event EventZmenyDivizie zmenaProjektu;
         public UC_Projekty() {
             InitializeComponent();
             update();
@@ -77,6 +78,9 @@ namespace OSF {
         private void LstProjekty_SelectedIndexChanged(object sender, EventArgs e) {
             if (lstProjekty.SelectedValue == null || lstProjekty.SelectedValue.ToString() == "System.Data.DataRowView") {
                 return;
+            }
+            if (zmenaProjektu != null) {
+                zmenaProjektu(lstProjekty.Text);
             }
             Preferences.KodProjektu = Convert.ToInt32(lstProjekty.SelectedValue);
             tbNazov.Text = lstProjekty.Text;
@@ -206,6 +210,10 @@ namespace OSF {
                 Preferences.IsKodProjekt = false;
 
                 Preferences.IsOddelenie = false;
+            }
+
+            if (zmenaProjektu != null) {
+                zmenaProjektu(lstProjekty.SelectedItem == null ? "---" : lstProjekty.Text);
             }
         }
     }

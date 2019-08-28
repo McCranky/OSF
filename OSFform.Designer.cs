@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OSFform));
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonPanel = new System.Windows.Forms.Panel();
@@ -42,12 +43,17 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+            this.ttExit = new System.Windows.Forms.ToolTip(this.components);
+            this.ttAbout = new System.Windows.Forms.ToolTip(this.components);
+            this.lbDivizia = new System.Windows.Forms.Label();
+            this.lbProjekt = new System.Windows.Forms.Label();
+            this.lbOddelenie = new System.Windows.Forms.Label();
+            this.uC_Zamestnanci = new OSF.UC_Zamestnanci();
+            this.uC_Oddelenia = new OSF.UC_Oddelenia();
+            this.uC_Projekty = new OSF.UC_Projekty();
+            this.uC_Divizie = new OSF.UC_Divizie();
             this.uC_Firma = new OSF.UC_Firma();
             this.uC_About = new OSF.UC_About();
-            this.uC_Divizie = new OSF.UC_Divizie();
-            this.uC_Projekty = new OSF.UC_Projekty();
-            this.uC_Oddelenia = new OSF.UC_Oddelenia();
-            this.uC_Zamestnanci = new OSF.Zamestnanci.UC_Zamestnanci();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelAbout.SuspendLayout();
@@ -56,6 +62,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(61)))), ((int)(((byte)(68)))));
+            this.panel1.Controls.Add(this.lbOddelenie);
+            this.panel1.Controls.Add(this.lbProjekt);
+            this.panel1.Controls.Add(this.lbDivizia);
             this.panel1.Controls.Add(this.buttonPanel);
             this.panel1.Controls.Add(this.btnZamestnanci);
             this.panel1.Controls.Add(this.btnAbout);
@@ -291,6 +300,74 @@
             this.label21.TabIndex = 7;
             this.label21.Text = "Organizačná štruktúra firmy";
             // 
+            // lbDivizia
+            // 
+            this.lbDivizia.AutoSize = true;
+            this.lbDivizia.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbDivizia.ForeColor = System.Drawing.Color.White;
+            this.lbDivizia.Location = new System.Drawing.Point(52, 229);
+            this.lbDivizia.Name = "lbDivizia";
+            this.lbDivizia.Size = new System.Drawing.Size(29, 16);
+            this.lbDivizia.TabIndex = 8;
+            this.lbDivizia.Text = "[---]";
+            // 
+            // lbProjekt
+            // 
+            this.lbProjekt.AutoSize = true;
+            this.lbProjekt.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbProjekt.ForeColor = System.Drawing.Color.White;
+            this.lbProjekt.Location = new System.Drawing.Point(52, 286);
+            this.lbProjekt.Name = "lbProjekt";
+            this.lbProjekt.Size = new System.Drawing.Size(29, 16);
+            this.lbProjekt.TabIndex = 9;
+            this.lbProjekt.Text = "[---]";
+            // 
+            // lbOddelenie
+            // 
+            this.lbOddelenie.AutoSize = true;
+            this.lbOddelenie.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbOddelenie.ForeColor = System.Drawing.Color.White;
+            this.lbOddelenie.Location = new System.Drawing.Point(50, 351);
+            this.lbOddelenie.Name = "lbOddelenie";
+            this.lbOddelenie.Size = new System.Drawing.Size(29, 16);
+            this.lbOddelenie.TabIndex = 10;
+            this.lbOddelenie.Text = "[---]";
+            // 
+            // uC_Zamestnanci
+            // 
+            this.uC_Zamestnanci.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Zamestnanci.Location = new System.Drawing.Point(226, 0);
+            this.uC_Zamestnanci.Name = "uC_Zamestnanci";
+            this.uC_Zamestnanci.Size = new System.Drawing.Size(785, 552);
+            this.uC_Zamestnanci.TabIndex = 7;
+            this.uC_Zamestnanci.Visible = false;
+            // 
+            // uC_Oddelenia
+            // 
+            this.uC_Oddelenia.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Oddelenia.Location = new System.Drawing.Point(226, 0);
+            this.uC_Oddelenia.Name = "uC_Oddelenia";
+            this.uC_Oddelenia.Size = new System.Drawing.Size(785, 552);
+            this.uC_Oddelenia.TabIndex = 6;
+            this.uC_Oddelenia.Visible = false;
+            // 
+            // uC_Projekty
+            // 
+            this.uC_Projekty.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Projekty.Location = new System.Drawing.Point(226, 0);
+            this.uC_Projekty.Name = "uC_Projekty";
+            this.uC_Projekty.Size = new System.Drawing.Size(785, 552);
+            this.uC_Projekty.TabIndex = 5;
+            this.uC_Projekty.Visible = false;
+            // 
+            // uC_Divizie
+            // 
+            this.uC_Divizie.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Divizie.Location = new System.Drawing.Point(226, 0);
+            this.uC_Divizie.Name = "uC_Divizie";
+            this.uC_Divizie.Size = new System.Drawing.Size(785, 552);
+            this.uC_Divizie.TabIndex = 4;
+            // 
             // uC_Firma
             // 
             this.uC_Firma.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -311,41 +388,6 @@
             this.uC_About.TabIndex = 1;
             this.uC_About.Verzia = "1.0";
             this.uC_About.Visible = false;
-            // 
-            // uC_Divizie
-            // 
-            this.uC_Divizie.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Divizie.Location = new System.Drawing.Point(226, 0);
-            this.uC_Divizie.Name = "uC_Divizie";
-            this.uC_Divizie.Size = new System.Drawing.Size(785, 552);
-            this.uC_Divizie.TabIndex = 4;
-            // 
-            // uC_Projekty
-            // 
-            this.uC_Projekty.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Projekty.Location = new System.Drawing.Point(226, 0);
-            this.uC_Projekty.Name = "uC_Projekty";
-            this.uC_Projekty.Size = new System.Drawing.Size(785, 552);
-            this.uC_Projekty.TabIndex = 5;
-            this.uC_Projekty.Visible = false;
-            // 
-            // uC_Oddelenia
-            // 
-            this.uC_Oddelenia.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Oddelenia.Location = new System.Drawing.Point(226, 0);
-            this.uC_Oddelenia.Name = "uC_Oddelenia";
-            this.uC_Oddelenia.Size = new System.Drawing.Size(785, 552);
-            this.uC_Oddelenia.TabIndex = 6;
-            this.uC_Oddelenia.Visible = false;
-            // 
-            // uC_Zamestnanci
-            // 
-            this.uC_Zamestnanci.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Zamestnanci.Location = new System.Drawing.Point(226, 0);
-            this.uC_Zamestnanci.Name = "uC_Zamestnanci";
-            this.uC_Zamestnanci.Size = new System.Drawing.Size(785, 552);
-            this.uC_Zamestnanci.TabIndex = 7;
-            this.uC_Zamestnanci.Visible = false;
             // 
             // OSFform
             // 
@@ -371,6 +413,7 @@
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OSFform_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OSFform_MouseUp);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelAbout.ResumeLayout(false);
             this.panelAbout.PerformLayout();
@@ -403,6 +446,11 @@
         private UC_Divizie uC_Divizie;
         private UC_Projekty uC_Projekty;
         private UC_Oddelenia uC_Oddelenia;
-        private Zamestnanci.UC_Zamestnanci uC_Zamestnanci;
+        private UC_Zamestnanci uC_Zamestnanci;
+        private System.Windows.Forms.ToolTip ttExit;
+        private System.Windows.Forms.ToolTip ttAbout;
+        private System.Windows.Forms.Label lbDivizia;
+        private System.Windows.Forms.Label lbOddelenie;
+        private System.Windows.Forms.Label lbProjekt;
     }
 }
