@@ -12,13 +12,15 @@ using System.Windows.Forms;
 
 namespace OSF {
     public partial class OSFform : Form {
-        private SqlConnection connection;
+        //private SqlConnection connection;
         private string connectionString;
         private bool moveForm = false;
         private Point movePoint;
         private UserControl currentUC;
 
         public OSFform() {
+            
+            //Constants.CONNECTIONSTRING = connectionString;
             InitializeComponent();
             connectionString = ConfigurationManager.ConnectionStrings["OSF.Properties.Settings.OSF_DatabaseConnectionString"].ConnectionString;
             initUC_About();
@@ -71,26 +73,48 @@ namespace OSF {
             buttonPanel.Height = btnFirma.Height;
             buttonPanel.Top = btnFirma.Top;
             buttonPanel.Left = btnFirma.Left - buttonPanel.Width;
+            uC_Firma.update();
             changeUC(uC_Firma);
 
         }
 
         private void btnDivizie_Click(object sender, EventArgs e) {
+            if (!Preferences.IsFirma) {
+                MessageBox.Show("Najprv založte firmu.", "Upozornenie");
+                return;
+            }
             buttonPanel.Height = btnDivizie.Height;
             buttonPanel.Top = btnDivizie.Top;
             buttonPanel.Left = btnDivizie.Left - buttonPanel.Width;
+            uC_Divizie.update();
+            changeUC(uC_Divizie);
         }
 
         private void btnProjekty_Click(object sender, EventArgs e) {
+            if (!Preferences.IsDivizia) {
+                MessageBox.Show("Najprv založte divíziu.", "Upozornenie");
+                return;
+            }
             buttonPanel.Height = btnProjekty.Height;
             buttonPanel.Top = btnProjekty.Top;
             buttonPanel.Left = btnProjekty.Left - buttonPanel.Width;
+            uC_Projekty.update();
+            changeUC(uC_Projekty);
         }
 
         private void btnOddelenia_Click(object sender, EventArgs e) {
+            if (currentUC == uC_Divizie) {
+                uC_Projekty.update();
+            }
+            if (!Preferences.IsProjekt) {
+                MessageBox.Show("Najprv založte projekt.", "Upozornenie");
+                return;
+            }
             buttonPanel.Height = btnOddelenia.Height;
             buttonPanel.Top = btnOddelenia.Top;
             buttonPanel.Left = btnOddelenia.Left - buttonPanel.Width;
+            uC_Oddelenia.update();
+            changeUC(uC_Oddelenia);
         }
 
         private void btnAbout_Click(object sender, EventArgs e) {
@@ -104,27 +128,13 @@ namespace OSF {
             buttonPanel.Height = btnZamestnanci.Height;
             buttonPanel.Top = btnZamestnanci.Top;
             buttonPanel.Left = btnZamestnanci.Left - buttonPanel.Width;
+            uC_Zamestnanci.update();
+            changeUC(uC_Zamestnanci);
         }
 
         private void OSFform_Load(object sender, EventArgs e) {
             buttonPanel.Top = btnFirma.Top;
             buttonPanel.Left = btnFirma.Left - buttonPanel.Width;
-
-            naplnList();
-        }
-
-        private void naplnList() {
-            using (connection = new SqlConnection(connectionString))
-            using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Tab_UrovenFirmy", connection)) {
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-
-                
-                listUrovni.DataSource = table;
-                listUrovni.DisplayMember = "popis";
-                listUrovni.ValueMember = "id";
-                
-            }
         }
 
         private void changeUC(UserControl uc) {

@@ -1,7 +1,5 @@
-﻿namespace OSF
-{
-    partial class OSFform
-    {
+﻿namespace OSF {
+    partial class OSFform {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -11,10 +9,8 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
+        protected override void Dispose(bool disposing) {
+            if (disposing && (components != null)) {
                 components.Dispose();
             }
             base.Dispose(disposing);
@@ -26,8 +22,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OSFform));
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonPanel = new System.Windows.Forms.Panel();
@@ -47,9 +42,12 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.listUrovni = new System.Windows.Forms.ComboBox();
-            this.uC_About = new OSF.UC_About();
             this.uC_Firma = new OSF.UC_Firma();
+            this.uC_About = new OSF.UC_About();
+            this.uC_Divizie = new OSF.UC_Divizie();
+            this.uC_Projekty = new OSF.UC_Projekty();
+            this.uC_Oddelenia = new OSF.UC_Oddelenia();
+            this.uC_Zamestnanci = new OSF.Zamestnanci.UC_Zamestnanci();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelAbout.SuspendLayout();
@@ -293,14 +291,14 @@
             this.label21.TabIndex = 7;
             this.label21.Text = "Organizačná štruktúra firmy";
             // 
-            // listUrovni
+            // uC_Firma
             // 
-            this.listUrovni.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.listUrovni.FormattingEnabled = true;
-            this.listUrovni.Location = new System.Drawing.Point(53, 453);
-            this.listUrovni.Name = "listUrovni";
-            this.listUrovni.Size = new System.Drawing.Size(121, 21);
-            this.listUrovni.TabIndex = 2;
+            this.uC_Firma.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Firma.Location = new System.Drawing.Point(226, 0);
+            this.uC_Firma.Name = "uC_Firma";
+            this.uC_Firma.Size = new System.Drawing.Size(785, 552);
+            this.uC_Firma.TabIndex = 3;
+            this.uC_Firma.Visible = false;
             // 
             // uC_About
             // 
@@ -314,14 +312,40 @@
             this.uC_About.Verzia = "1.0";
             this.uC_About.Visible = false;
             // 
-            // uC_Firma
+            // uC_Divizie
             // 
-            this.uC_Firma.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Firma.Location = new System.Drawing.Point(226, 0);
-            this.uC_Firma.Name = "uC_Firma";
-            this.uC_Firma.Size = new System.Drawing.Size(785, 552);
-            this.uC_Firma.TabIndex = 3;
-            this.uC_Firma.Visible = false;
+            this.uC_Divizie.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Divizie.Location = new System.Drawing.Point(226, 0);
+            this.uC_Divizie.Name = "uC_Divizie";
+            this.uC_Divizie.Size = new System.Drawing.Size(785, 552);
+            this.uC_Divizie.TabIndex = 4;
+            // 
+            // uC_Projekty
+            // 
+            this.uC_Projekty.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Projekty.Location = new System.Drawing.Point(226, 0);
+            this.uC_Projekty.Name = "uC_Projekty";
+            this.uC_Projekty.Size = new System.Drawing.Size(785, 552);
+            this.uC_Projekty.TabIndex = 5;
+            this.uC_Projekty.Visible = false;
+            // 
+            // uC_Oddelenia
+            // 
+            this.uC_Oddelenia.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Oddelenia.Location = new System.Drawing.Point(226, 0);
+            this.uC_Oddelenia.Name = "uC_Oddelenia";
+            this.uC_Oddelenia.Size = new System.Drawing.Size(785, 552);
+            this.uC_Oddelenia.TabIndex = 6;
+            this.uC_Oddelenia.Visible = false;
+            // 
+            // uC_Zamestnanci
+            // 
+            this.uC_Zamestnanci.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Zamestnanci.Location = new System.Drawing.Point(226, 0);
+            this.uC_Zamestnanci.Name = "uC_Zamestnanci";
+            this.uC_Zamestnanci.Size = new System.Drawing.Size(785, 552);
+            this.uC_Zamestnanci.TabIndex = 7;
+            this.uC_Zamestnanci.Visible = false;
             // 
             // OSFform
             // 
@@ -329,8 +353,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1011, 552);
             this.ControlBox = false;
+            this.Controls.Add(this.uC_Zamestnanci);
+            this.Controls.Add(this.uC_Oddelenia);
+            this.Controls.Add(this.uC_Projekty);
+            this.Controls.Add(this.uC_Divizie);
             this.Controls.Add(this.uC_Firma);
-            this.Controls.Add(this.listUrovni);
             this.Controls.Add(this.uC_About);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -372,8 +399,10 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button btnZamestnanci;
         private UC_About uC_About;
-        private System.Windows.Forms.ComboBox listUrovni;
         private UC_Firma uC_Firma;
+        private UC_Divizie uC_Divizie;
+        private UC_Projekty uC_Projekty;
+        private UC_Oddelenia uC_Oddelenia;
+        private Zamestnanci.UC_Zamestnanci uC_Zamestnanci;
     }
 }
-

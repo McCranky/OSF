@@ -14,5 +14,6 @@ namespace OSF {
         public const string VERZIA = "1.0 beta";
         public const string AUTOR = "Marek Smatana";
         public const string ROK = "2019";
+        public static string CONNECTIONSTRING = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Marek\source\repos\csharp\OSF\OSF_Database.mdf;Integrated Security = True";
     }
 }

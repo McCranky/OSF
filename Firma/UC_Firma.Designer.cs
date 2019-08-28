@@ -289,11 +289,13 @@
             // 
             // lstKandidati
             // 
+            this.lstKandidati.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lstKandidati.FormattingEnabled = true;
             this.lstKandidati.HorizontalScrollbar = true;
+            this.lstKandidati.ItemHeight = 17;
             this.lstKandidati.Location = new System.Drawing.Point(4, 82);
             this.lstKandidati.Name = "lstKandidati";
-            this.lstKandidati.Size = new System.Drawing.Size(235, 212);
+            this.lstKandidati.Size = new System.Drawing.Size(235, 208);
             this.lstKandidati.TabIndex = 10;
             // 
             // btnUkoncit

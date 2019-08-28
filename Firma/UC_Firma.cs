@@ -1,41 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Configuration;
 
 namespace OSF {
     public partial class UC_Firma : UserControl {
-        private string connectionString;
         private SqlConnection connection;
-        public bool IsFrirma { get; set; }
         public UC_Firma() {
             InitializeComponent();
-            connectionString = ConfigurationManager.ConnectionStrings["OSF.Properties.Settings.OSF_DatabaseConnectionString"].ConnectionString;
         }
 
         private void btnUpravit_Click(object sender, EventArgs e) {
-            if (!IsFrirma) {
-                MessageBox.Show("Najskôr vyplnte formulár.", "Varovanie");
+            if (!Preferences.IsFirma) {
+                MessageBox.Show("Najskôr vyplnte formulár.", "Upozornenie");
                 return;
             }
             if (!panelEdit.Visible) {
                 panelEdit.Visible = true;
-                //naplnListKandidatov();
             } else {
                 MessageBox.Show("Okno je už otvorené.", "Edit");
             }
         }
 
         private void BtnZrusit_Click(object sender, EventArgs e) {
-            if (!IsFrirma) {
-                MessageBox.Show("Najskôr vyplnte formulár.", "Varovanie");
+            if (!Preferences.IsFirma) {
+                MessageBox.Show("Najskôr vyplnte formulár.", "Upozornenie");
                 return;
             }
             string msg = "- prepustenie všetkých zamestnancov\n" +
@@ -45,7 +34,7 @@ namespace OSF {
                          "Prajete si firmu zrušiť?";
             DialogResult rst = MessageBox.Show(msg, "Zrušenie firmy", MessageBoxButtons.YesNo);
             if (rst == DialogResult.Yes) {
-                using (connection = new SqlConnection(connectionString)) {
+                using (connection = new SqlConnection(Constants.CONNECTIONSTRING)) {
                     using (SqlCommand cmd = new SqlCommand("panicButton", connection)) {
                         connection.Open();
                         cmd.ExecuteNonQuery();
@@ -53,7 +42,7 @@ namespace OSF {
                     }
                 }
                 formularFirmy.Visible = true;
-                IsFrirma = false;
+                Preferences.IsFirma = false;
             }
         }
 
@@ -62,7 +51,7 @@ namespace OSF {
         }
 
         private void ziskajAktualneUdaje() {
-            using (connection = new SqlConnection(connectionString)) {
+            using (connection = new SqlConnection(Constants.CONNECTIONSTRING)) {
                 connection.Open(); // Otvorenie spojenia
                 // Ziskanie početnosti uzlov
                 using (SqlCommand cmd = new SqlCommand("pocetnost", connection)) {
@@ -112,9 +101,9 @@ namespace OSF {
             naplnListKAndidatov();
             if (labelRiaditel.Text == "---") {
                 formularFirmy.Visible = true;
-                IsFrirma = false;
+                Preferences.IsFirma = false;
             } else {
-                IsFrirma = true;
+                Preferences.IsFirma = true;
             }
         }
 
@@ -123,15 +112,14 @@ namespace OSF {
                 MessageBox.Show("Všetky polia musia byť vyplnené.");
                 return;
             }
-            using (connection = new SqlConnection(connectionString)) {
+            using (connection = new SqlConnection(Constants.CONNECTIONSTRING)) {
                 // Aktualizovanie Nazvu
                 string quarryNazovFirmy = "UPDATE Tab_Kody " +
-                                 "SET nazov = @pNazov " +
-                                 "WHERE EXISTS(" +
-                                 " SELECT * FROM Tab_Kody" +
-                                 " JOIN Tab_Firma ON Tab_Kody.kod = Tab_Firma.kod)";
+                                          "SET nazov = @pNazov " +
+                                          "WHERE kod = @pKod";
                 using (SqlCommand cmd = new SqlCommand(quarryNazovFirmy, connection)) {
                     cmd.Parameters.AddWithValue("@pNazov", tbNazov.Text);
+                    cmd.Parameters.AddWithValue("@pKod", Constants.UROVEN_FIRMA);
                     connection.Open();
                     cmd.ExecuteNonQuery();
                     connection.Close();
@@ -157,7 +145,7 @@ namespace OSF {
         }
 
         private void naplnListKAndidatov() {
-            using (connection = new SqlConnection(connectionString)) {
+            using (connection = new SqlConnection(Constants.CONNECTIONSTRING)) {
                 // Ziskanie vhodnych kandidátov na pozíciu riaditeľa (pracovnícy na úrovni firmy)
                 string quarryKandidati = "SELECT id, (isnull(titul,'') + meno + priezvisko + mail + CONVERT(nchar(10),isnull(telefon,12345))) as INFO FROM Tab_Zamestnanci " +
                                      "WHERE kodPracoviska IN(" +
@@ -180,7 +168,7 @@ namespace OSF {
                 MessageBox.Show("Polia s '*' musia byť vyplnené.", "Upozornenie");
                 return;
             }
-            using (SqlConnection connection = new SqlConnection(connectionString)) {
+            using (SqlConnection connection = new SqlConnection(Constants.CONNECTIONSTRING)) {
                 string quarryPridajKodFirmy = "INSERT INTO Tab_Kody (idUrovne, nazov) " +
                                            "VALUES (@uroven, @nazov)";
                 using (SqlCommand cmd = new SqlCommand(quarryPridajKodFirmy, connection)) {
@@ -215,7 +203,13 @@ namespace OSF {
             formularFirmy.Visible = false;
             ziskajAktualneUdaje();
             naplnListKAndidatov();
-            IsFrirma = true;
+            Preferences.IsFirma = true;
+        }
+
+        public void update() {
+            ziskajAktualneUdaje();
+            naplnListKAndidatov();
+            hideEditPanel();
         }
     }
 }

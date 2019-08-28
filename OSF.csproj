@@ -74,6 +74,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>OSF_DatabaseDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Preferences.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="About\UC_About.cs">
@@ -112,6 +113,12 @@
     <Compile Include="Zamestnanci\UC_FormularZamestnanec.Designer.cs">
       <DependentUpon>UC_FormularZamestnanec.cs</DependentUpon>
     </Compile>
+    <Compile Include="Zamestnanci\UC_Zamestnanci.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Zamestnanci\UC_Zamestnanci.Designer.cs">
+      <DependentUpon>UC_Zamestnanci.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="OSFform.resx">
       <DependentUpon>OSFform.cs</DependentUpon>
     </EmbeddedResource>
@@ -142,6 +149,9 @@
     <EmbeddedResource Include="Zamestnanci\UC_FormularZamestnanec.resx">
       <DependentUpon>UC_FormularZamestnanec.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Zamestnanci\UC_Zamestnanci.resx">
+      <DependentUpon>UC_Zamestnanci.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="OSF_DatabaseDataSet.xsc">
       <DependentUpon>OSF_DatabaseDataSet.xsd</DependentUpon>
     </None>
@@ -168,10 +178,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="OSF_Database.mdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="OSF_Database_log.ldf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>OSF_Database.mdf</DependentUpon>
     </Content>
   </ItemGroup>
