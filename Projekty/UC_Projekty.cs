@@ -13,7 +13,7 @@ namespace OSF {
         }
 
         private void naplnProjekty() {
-            using (connection = new SqlConnection(Constants.CONNECTIONSTRING)) {
+            using (connection = new SqlConnection(Preferences.connectionString)) {
                 string quarryDivizie = "SELECT nazov, tk.kod AS kd FROM Tab_Projekty td " +
                                        "JOIN Tab_Kody tk ON td.kod = tk.kod " +
                                        "WHERE kDivizie = @kod";
@@ -30,7 +30,7 @@ namespace OSF {
         }
 
         private void naplnKandidatov() {
-            using (connection = new SqlConnection(Constants.CONNECTIONSTRING)) {
+            using (connection = new SqlConnection(Preferences.connectionString)) {
                 // Ziskanie vhodnych kandidátov na pozíciu vedúceho
                 string quarryZamestnanci = "SELECT id, (isnull(titul,'') + ' ' + meno + ' ' + priezvisko + ' ' + mail + ' ' + CONVERT(nchar(10),isnull(telefon,12345))) as INFO FROM Tab_Zamestnanci " +
                                            "WHERE kodPracoviska = @kod";
@@ -60,7 +60,7 @@ namespace OSF {
         }
 
         private void naplnNepriradenych() {
-            using (connection = new SqlConnection(Constants.CONNECTIONSTRING)) {
+            using (connection = new SqlConnection(Preferences.connectionString)) {
                 string quarryNepriradeny = "SELECT id, (isnull(titul,'') + ' ' + meno + ' ' + priezvisko + ' ' + mail + ' ' + CONVERT(nchar(10),isnull(telefon,12345))) as INFO FROM Tab_Zamestnanci " +
                                            "WHERE kodPracoviska IS NULL";
                 using (SqlDataAdapter adapter = new SqlDataAdapter(quarryNepriradeny, connection)) {
@@ -120,7 +120,7 @@ namespace OSF {
                 return;
             }
 
-            using (connection = new SqlConnection(Constants.CONNECTIONSTRING)) {
+            using (connection = new SqlConnection(Preferences.connectionString)) {
                 string quarryKandidatVeduceho = "SELECT COUNT(*) FROM Tab_Projekty " +
                                                 "WHERE idVeduci = @id";
                 using (SqlCommand cmd = new SqlCommand(quarryKandidatVeduceho, connection)) {
@@ -159,7 +159,7 @@ namespace OSF {
                 }
             }
 
-            using (connection = new SqlConnection(Constants.CONNECTIONSTRING)) {
+            using (connection = new SqlConnection(Preferences.connectionString)) {
                 using (SqlCommand cmd = new SqlCommand("upravProjekt", connection)) {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@pKod", Convert.ToInt32(lstProjekty.SelectedValue));
@@ -182,7 +182,7 @@ namespace OSF {
                          "Prajete si zrušiť projekt a prepustiť zamestnancov?";
             DialogResult rst = MessageBox.Show(msg, "Zrušenie projektu", MessageBoxButtons.YesNo);
             if (rst == DialogResult.Yes) {
-                using (connection = new SqlConnection(Constants.CONNECTIONSTRING)) {
+                using (connection = new SqlConnection(Preferences.connectionString)) {
                     using (SqlCommand cmd = new SqlCommand("zrusProjekt", connection)) {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@pKod", Convert.ToInt32(lstProjekty.SelectedValue));

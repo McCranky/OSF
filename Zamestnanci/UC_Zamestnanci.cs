@@ -24,7 +24,7 @@ namespace OSF {
         }
 
         private void naplnZamestnancov() {
-            using (connection = new SqlConnection(Constants.CONNECTIONSTRING)) {
+            using (connection = new SqlConnection(Preferences.connectionString)) {
                 string quarryZamestnanci = "SELECT id, (isnull(titul,'') + ' ' + meno + ' ' + priezvisko + ' ' + mail + ' ' + CONVERT(nchar(10),isnull(telefon,12345))) as INFO FROM Tab_Zamestnanci " +
                                            "WHERE kodPracoviska IS NOT NULL";
                 using (SqlDataAdapter adapter = new SqlDataAdapter(quarryZamestnanci, connection)) {
@@ -39,7 +39,7 @@ namespace OSF {
         }
 
         private void naplnNepriradenych() {
-            using (connection = new SqlConnection(Constants.CONNECTIONSTRING)) {
+            using (connection = new SqlConnection(Preferences.connectionString)) {
                 string quarryNepriradeny = "SELECT id, (isnull(titul,'') + ' ' + meno + ' ' + priezvisko + ' ' + mail + ' ' + CONVERT(nchar(10),isnull(telefon,12345))) as INFO FROM Tab_Zamestnanci " +
                                            "WHERE kodPracoviska IS NULL";
                 using (SqlDataAdapter adapter = new SqlDataAdapter(quarryNepriradeny, connection)) {
@@ -72,7 +72,7 @@ namespace OSF {
         }
 
         private void naplnPolia(int id) {
-            using (connection = new SqlConnection(Constants.CONNECTIONSTRING)) {
+            using (connection = new SqlConnection(Preferences.connectionString)) {
                 string quarryOsoba = "SELECT isnull(titul,'') AS TIT, meno, priezvisko, mail, isnull(telefon,'') AS TEL FROM Tab_Zamestnanci " +
                                            "WHERE id = @id";
                 using (SqlCommand cmd = new SqlCommand(quarryOsoba, connection)) {
@@ -116,7 +116,7 @@ namespace OSF {
                 MessageBox.Show("Je potrebné vyplniť aspoň meno, priezvisko a mail.", "Upozornenie");
                 return;
             }
-            using (connection = new SqlConnection(Constants.CONNECTIONSTRING)) {
+            using (connection = new SqlConnection(Preferences.connectionString)) {
                 string quarryUpravZamestnanca = "UPDATE Tab_Zamestnanci " +
                                                 "SET titul = @titul, meno = @meno, priezvisko = @priezvisko, mail = @mail, telefon = @telefon " +
                                                 "WHERE id = @id";
@@ -147,7 +147,7 @@ namespace OSF {
                 MessageBox.Show("Je potrebné vyplniť aspoň meno, priezvisko a mail.", "Upozornenie");
                 return;
             }
-            using (connection = new SqlConnection(Constants.CONNECTIONSTRING)) {
+            using (connection = new SqlConnection(Preferences.connectionString)) {
                 string quarryPridajZamestnanca = "INSERT INTO Tab_Zamestnanci " +
                                                  "(titul, meno, priezvisko, mail, telefon) " +
                                                  "VALUES (@titul, @meno, @priezvisko, @mail, @telefon)";
@@ -184,7 +184,7 @@ namespace OSF {
                 return;
             }
             try {
-                using (connection = new SqlConnection(Constants.CONNECTIONSTRING)) {
+                using (connection = new SqlConnection(Preferences.connectionString)) {
                     string quarryPridajZamestnanca = "DELETE FROM Tab_Zamestnanci " +
                                                      "WHERE id = @id";
                     using (SqlCommand cmd = new SqlCommand(quarryPridajZamestnanca, connection)) {
@@ -250,7 +250,7 @@ namespace OSF {
                 return;
             }
 
-            using (connection = new SqlConnection(Constants.CONNECTIONSTRING)) {
+            using (connection = new SqlConnection(Preferences.connectionString)) {
                 using (SqlCommand cmd = new SqlCommand("skontrolujZamestnanca", connection)) {
                     cmd.CommandType = CommandType.StoredProcedure;
                     if (lstNepriradeny.SelectedItem != null) {
@@ -272,7 +272,7 @@ namespace OSF {
                 }
             }
 
-            using (connection = new SqlConnection(Constants.CONNECTIONSTRING)) {
+            using (connection = new SqlConnection(Preferences.connectionString)) {
                 string quarryZaradZamestnanca = "UPDATE Tab_Zamestnanci " +
                                                 "SET kodPracoviska = @kod " +
                                                 "WHERE id = @id";
@@ -320,7 +320,7 @@ namespace OSF {
         }
 
         private void naplnPracoviska(string tabulka) {
-            using (connection = new SqlConnection(Constants.CONNECTIONSTRING)) {
+            using (connection = new SqlConnection(Preferences.connectionString)) {
                 string quarryDivizie = "SELECT nazov, tk.kod AS kd FROM " + tabulka + " td " +
                                        "JOIN Tab_Kody tk ON td.kod = tk.kod";
                 using (SqlDataAdapter adapter = new SqlDataAdapter(quarryDivizie, connection)) {

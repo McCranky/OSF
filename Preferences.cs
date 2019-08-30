@@ -1,4 +1,6 @@
-﻿namespace OSF {
+﻿using System.Configuration;
+
+namespace OSF {
     class Preferences {
         public static bool IsFirma { get; set; }
         public static bool IsDivizia { get; set; }
@@ -14,5 +16,7 @@
         public static int KodDivizie { get; set; }
         public static int KodProjektu { get; set; }
         public static int KodOddelenia { get; set; }
+
+        public static string connectionString { get { return "Data Source=DESKTOP-AUUG58B\\SQLEXPRESS;Initial Catalog=OSFDatabase;Integrated Security=True"; } }
     }
 }

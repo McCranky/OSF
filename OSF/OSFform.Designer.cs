@@ -26,6 +26,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OSFform));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbOddelenie = new System.Windows.Forms.Label();
+            this.lbProjekt = new System.Windows.Forms.Label();
+            this.lbDivizia = new System.Windows.Forms.Label();
             this.buttonPanel = new System.Windows.Forms.Panel();
             this.btnZamestnanci = new System.Windows.Forms.Button();
             this.btnAbout = new System.Windows.Forms.Button();
@@ -45,9 +48,6 @@
             this.label21 = new System.Windows.Forms.Label();
             this.ttExit = new System.Windows.Forms.ToolTip(this.components);
             this.ttAbout = new System.Windows.Forms.ToolTip(this.components);
-            this.lbDivizia = new System.Windows.Forms.Label();
-            this.lbProjekt = new System.Windows.Forms.Label();
-            this.lbOddelenie = new System.Windows.Forms.Label();
             this.uC_Zamestnanci = new OSF.UC_Zamestnanci();
             this.uC_Oddelenia = new OSF.UC_Oddelenia();
             this.uC_Projekty = new OSF.UC_Projekty();
@@ -83,6 +83,39 @@
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OSFform_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OSFform_MouseUp);
             // 
+            // lbOddelenie
+            // 
+            this.lbOddelenie.AutoSize = true;
+            this.lbOddelenie.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbOddelenie.ForeColor = System.Drawing.Color.White;
+            this.lbOddelenie.Location = new System.Drawing.Point(55, 369);
+            this.lbOddelenie.Name = "lbOddelenie";
+            this.lbOddelenie.Size = new System.Drawing.Size(29, 16);
+            this.lbOddelenie.TabIndex = 10;
+            this.lbOddelenie.Text = "[---]";
+            // 
+            // lbProjekt
+            // 
+            this.lbProjekt.AutoSize = true;
+            this.lbProjekt.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbProjekt.ForeColor = System.Drawing.Color.White;
+            this.lbProjekt.Location = new System.Drawing.Point(57, 298);
+            this.lbProjekt.Name = "lbProjekt";
+            this.lbProjekt.Size = new System.Drawing.Size(29, 16);
+            this.lbProjekt.TabIndex = 9;
+            this.lbProjekt.Text = "[---]";
+            // 
+            // lbDivizia
+            // 
+            this.lbDivizia.AutoSize = true;
+            this.lbDivizia.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbDivizia.ForeColor = System.Drawing.Color.White;
+            this.lbDivizia.Location = new System.Drawing.Point(57, 227);
+            this.lbDivizia.Name = "lbDivizia";
+            this.lbDivizia.Size = new System.Drawing.Size(29, 16);
+            this.lbDivizia.TabIndex = 8;
+            this.lbDivizia.Text = "[---]";
+            // 
             // buttonPanel
             // 
             this.buttonPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(231)))), ((int)(((byte)(238)))));
@@ -99,7 +132,7 @@
             this.btnZamestnanci.ForeColor = System.Drawing.Color.White;
             this.btnZamestnanci.Image = ((System.Drawing.Image)(resources.GetObject("btnZamestnanci.Image")));
             this.btnZamestnanci.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnZamestnanci.Location = new System.Drawing.Point(53, 368);
+            this.btnZamestnanci.Location = new System.Drawing.Point(53, 385);
             this.btnZamestnanci.Name = "btnZamestnanci";
             this.btnZamestnanci.Size = new System.Drawing.Size(161, 48);
             this.btnZamestnanci.TabIndex = 7;
@@ -129,7 +162,7 @@
             this.btnOddelenia.ForeColor = System.Drawing.Color.White;
             this.btnOddelenia.Image = ((System.Drawing.Image)(resources.GetObject("btnOddelenia.Image")));
             this.btnOddelenia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOddelenia.Location = new System.Drawing.Point(55, 305);
+            this.btnOddelenia.Location = new System.Drawing.Point(55, 315);
             this.btnOddelenia.Name = "btnOddelenia";
             this.btnOddelenia.Size = new System.Drawing.Size(151, 48);
             this.btnOddelenia.TabIndex = 4;
@@ -147,7 +180,7 @@
             this.btnProjekty.ForeColor = System.Drawing.Color.White;
             this.btnProjekty.Image = ((System.Drawing.Image)(resources.GetObject("btnProjekty.Image")));
             this.btnProjekty.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProjekty.Location = new System.Drawing.Point(55, 242);
+            this.btnProjekty.Location = new System.Drawing.Point(55, 245);
             this.btnProjekty.Name = "btnProjekty";
             this.btnProjekty.Size = new System.Drawing.Size(151, 48);
             this.btnProjekty.TabIndex = 3;
@@ -165,7 +198,7 @@
             this.btnDivizie.ForeColor = System.Drawing.Color.White;
             this.btnDivizie.Image = ((System.Drawing.Image)(resources.GetObject("btnDivizie.Image")));
             this.btnDivizie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDivizie.Location = new System.Drawing.Point(55, 179);
+            this.btnDivizie.Location = new System.Drawing.Point(55, 175);
             this.btnDivizie.Name = "btnDivizie";
             this.btnDivizie.Size = new System.Drawing.Size(151, 48);
             this.btnDivizie.TabIndex = 2;
@@ -183,7 +216,7 @@
             this.btnFirma.ForeColor = System.Drawing.Color.White;
             this.btnFirma.Image = ((System.Drawing.Image)(resources.GetObject("btnFirma.Image")));
             this.btnFirma.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFirma.Location = new System.Drawing.Point(55, 116);
+            this.btnFirma.Location = new System.Drawing.Point(55, 105);
             this.btnFirma.Name = "btnFirma";
             this.btnFirma.Size = new System.Drawing.Size(151, 48);
             this.btnFirma.TabIndex = 1;
@@ -299,39 +332,6 @@
             this.label21.Size = new System.Drawing.Size(296, 25);
             this.label21.TabIndex = 7;
             this.label21.Text = "Organizačná štruktúra firmy";
-            // 
-            // lbDivizia
-            // 
-            this.lbDivizia.AutoSize = true;
-            this.lbDivizia.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbDivizia.ForeColor = System.Drawing.Color.White;
-            this.lbDivizia.Location = new System.Drawing.Point(52, 229);
-            this.lbDivizia.Name = "lbDivizia";
-            this.lbDivizia.Size = new System.Drawing.Size(29, 16);
-            this.lbDivizia.TabIndex = 8;
-            this.lbDivizia.Text = "[---]";
-            // 
-            // lbProjekt
-            // 
-            this.lbProjekt.AutoSize = true;
-            this.lbProjekt.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbProjekt.ForeColor = System.Drawing.Color.White;
-            this.lbProjekt.Location = new System.Drawing.Point(52, 286);
-            this.lbProjekt.Name = "lbProjekt";
-            this.lbProjekt.Size = new System.Drawing.Size(29, 16);
-            this.lbProjekt.TabIndex = 9;
-            this.lbProjekt.Text = "[---]";
-            // 
-            // lbOddelenie
-            // 
-            this.lbOddelenie.AutoSize = true;
-            this.lbOddelenie.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbOddelenie.ForeColor = System.Drawing.Color.White;
-            this.lbOddelenie.Location = new System.Drawing.Point(50, 351);
-            this.lbOddelenie.Name = "lbOddelenie";
-            this.lbOddelenie.Size = new System.Drawing.Size(29, 16);
-            this.lbOddelenie.TabIndex = 10;
-            this.lbOddelenie.Text = "[---]";
             // 
             // uC_Zamestnanci
             // 

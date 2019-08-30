@@ -512,6 +512,7 @@
             this.tbFtelefon.Name = "tbFtelefon";
             this.tbFtelefon.Size = new System.Drawing.Size(100, 23);
             this.tbFtelefon.TabIndex = 21;
+            this.tbFtelefon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbFtelefon_KeyPress);
             // 
             // label11
             // 

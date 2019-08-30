@@ -34,7 +34,7 @@ namespace OSF {
                          "Prajete si firmu zrušiť?";
             DialogResult rst = MessageBox.Show(msg, "Zrušenie firmy", MessageBoxButtons.YesNo);
             if (rst == DialogResult.Yes) {
-                using (connection = new SqlConnection(Constants.CONNECTIONSTRING)) {
+                using (connection = new SqlConnection(Preferences.connectionString)) {
                     using (SqlCommand cmd = new SqlCommand("panicButton", connection)) {
                         connection.Open();
                         cmd.ExecuteNonQuery();
@@ -51,7 +51,7 @@ namespace OSF {
         }
 
         private void ziskajAktualneUdaje() {
-            using (connection = new SqlConnection(Constants.CONNECTIONSTRING)) {
+            using (connection = new SqlConnection(Preferences.connectionString)) {
                 connection.Open(); // Otvorenie spojenia
                 // Ziskanie početnosti uzlov
                 using (SqlCommand cmd = new SqlCommand("pocetnost", connection)) {
@@ -112,7 +112,7 @@ namespace OSF {
                 MessageBox.Show("Všetky polia musia byť vyplnené.");
                 return;
             }
-            using (connection = new SqlConnection(Constants.CONNECTIONSTRING)) {
+            using (connection = new SqlConnection(Preferences.connectionString)) {
                 // Aktualizovanie Nazvu
                 string quarryNazovFirmy = "UPDATE Tab_Kody " +
                                           "SET nazov = @pNazov " +
@@ -145,7 +145,7 @@ namespace OSF {
         }
 
         private void naplnListKAndidatov() {
-            using (connection = new SqlConnection(Constants.CONNECTIONSTRING)) {
+            using (connection = new SqlConnection(Preferences.connectionString)) {
                 // Ziskanie vhodnych kandidátov na pozíciu riaditeľa (pracovnícy na úrovni firmy)
                 string quarryKandidati = "SELECT id, (isnull(titul,'') + meno + priezvisko + mail + CONVERT(nchar(10),isnull(telefon,12345))) as INFO FROM Tab_Zamestnanci " +
                                      "WHERE kodPracoviska IN(" +
@@ -168,7 +168,7 @@ namespace OSF {
                 MessageBox.Show("Polia s '*' musia byť vyplnené.", "Upozornenie");
                 return;
             }
-            using (SqlConnection connection = new SqlConnection(Constants.CONNECTIONSTRING)) {
+            using (SqlConnection connection = new SqlConnection(Preferences.connectionString)) {
                 string quarryPridajKodFirmy = "INSERT INTO Tab_Kody (idUrovne, nazov) " +
                                            "VALUES (@uroven, @nazov)";
                 using (SqlCommand cmd = new SqlCommand(quarryPridajKodFirmy, connection)) {
@@ -210,6 +210,12 @@ namespace OSF {
             ziskajAktualneUdaje();
             naplnListKAndidatov();
             hideEditPanel();
+        }
+
+        private void TbFtelefon_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OSF {
@@ -27,10 +19,20 @@ namespace OSF {
             changeUC(uC_Firma);
         }
         private void zmenaTextuDivizie(string nazov) {
+            if (lbDivizia.Text == "[" + nazov + "]") {
+                return;
+            }
             lbDivizia.Text = "[" + nazov + "]";
+            Preferences.IsKodProjekt = false;
+            zmenaTextuProjektu("---");
         }
         private void zmenaTextuProjektu(string nazov) {
-            lbProjekt.Text = "[" + nazov + "]"; ;
+            if (lbProjekt.Text == "[" + nazov + "]") {
+                return;
+            }
+            lbProjekt.Text = "[" + nazov + "]";
+            Preferences.IsKodOddelenie = false;
+            zmenaTextuOddelenia("---");
         }
         private void zmenaTextuOddelenia(string nazov) {
             lbOddelenie.Text = "[" + nazov + "]"; ;
@@ -98,7 +100,7 @@ namespace OSF {
         }
 
         private void btnProjekty_Click(object sender, EventArgs e) {
-            if (!Preferences.IsDivizia) {
+            if (!Preferences.IsKodDivizia) {
                 MessageBox.Show("Najprv založte divíziu.", "Upozornenie");
                 return;
             }
@@ -110,10 +112,7 @@ namespace OSF {
         }
 
         private void btnOddelenia_Click(object sender, EventArgs e) {
-            if (currentUC == uC_Divizie) {
-                uC_Projekty.update();
-            }
-            if (!Preferences.IsProjekt) {
+            if (!Preferences.IsKodProjekt) {
                 MessageBox.Show("Najprv založte projekt.", "Upozornenie");
                 return;
             }

@@ -63,16 +63,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
-    <Compile Include="OSFform.cs">
+    <Compile Include="OSF\OSFform.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OSFform.Designer.cs">
+    <Compile Include="OSF\OSFform.Designer.cs">
       <DependentUpon>OSFform.cs</DependentUpon>
-    </Compile>
-    <Compile Include="OSF_DatabaseDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OSF_DatabaseDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Preferences.cs" />
     <Compile Include="Program.cs" />
@@ -113,7 +108,7 @@
     <Compile Include="Zamestnanci\UC_Zamestnanci.Designer.cs">
       <DependentUpon>UC_Zamestnanci.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="OSFform.resx">
+    <EmbeddedResource Include="OSF\OSFform.resx">
       <DependentUpon>OSFform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -143,17 +138,6 @@
     <EmbeddedResource Include="Zamestnanci\UC_Zamestnanci.resx">
       <DependentUpon>UC_Zamestnanci.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="OSF_DatabaseDataSet.xsc">
-      <DependentUpon>OSF_DatabaseDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="OSF_DatabaseDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>OSF_DatabaseDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="OSF_DatabaseDataSet.xss">
-      <DependentUpon>OSF_DatabaseDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -168,15 +152,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="OSF_Database.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="OSF_Database_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>OSF_Database.mdf</DependentUpon>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
@@ -187,6 +162,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
